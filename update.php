@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <pre>
         <input type="hidden" name="tour_id" id="" value="<?= $tour['id']?>">
 
-            <input type="text" name="name" id="" value="<?= $tour['name']?>">
+            <input type="text" name="name_t" id="" value="<?= $tour['name_t']?>">
             <i ><?= isset($err['name'])?$err['name']:'' ?></i>
             <input type="text" name="des" id="" value="<?= $tour['description']?>">
             <i ><?= isset($err['des'])?$err['des']:'' ?></i>

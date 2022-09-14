@@ -21,7 +21,7 @@
         <?= isset($_GET['message'])?$_GET['message']:''?>
         <thead>
             <tr>
-                <th>name</th>
+                <th>name tour</th>
                 <th>image</th>
                 <th>intro</th>
                 <th>description</th>
@@ -34,7 +34,7 @@
         <tbody>
             <?php foreach ($tours as $t):?>
             <tr>
-                <td><?= $t['name']?></td>
+                <td><?= $t['name_t']?></td>
                 <td><img src="image/<?= $t['image']?>" width="100" alt=""></td>
                 <td><?= $t['intro']?></td>
                 <td><?= $t['description']?></td>
