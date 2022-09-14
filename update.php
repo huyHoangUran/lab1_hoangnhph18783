@@ -2,6 +2,7 @@
 require_once 'connect.php';
 $err = [];
 if($_SERVER['REQUEST_METHOD']=='POST'){
+    $id=$_POST['tour_id'];
     $name = $_POST['name'];
     $intro=$_POST['intro'];
     $des = $_POST['des'];
@@ -31,8 +32,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $err['price']='Bạn chưa nhập giá';
     }
    
-        // $sql = "UPDATE tours SET name='$name',intro='$intro',description='$des',image ='$anh',number_date='$date',price=$price)  where id ='$tour_id'";
-        $sql = "UPDATE tours SET name='1',intro='1',description='1',price=1)  where id ='$tour_id'";
+        $sql = "UPDATE tours SET name='$name',intro='$intro',description='$des',number_date='$date',price=$price  where id ='$id'";
+        // $sql = "UPDATE tours SET name='1',intro='1',description='1',price=1 ";
     // var_dump($sql);die;
     $stmt=$conn->prepare($sql);
     $stmt->execute();
@@ -68,6 +69,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <body>
     <form method="post" action="update.php?tour_id=<?= $tour['id']?>" enctype="multipart/form-data" >
         <pre>
+        <input type="hidden" name="tour_id" id="" value="<?= $tour['id']?>">
 
             <input type="text" name="name" id="" value="<?= $tour['name']?>">
             <i ><?= isset($err['name'])?$err['name']:'' ?></i>
